@@ -5,17 +5,17 @@ A suite of Python, Fortran, and Cython scripts have been created to make it easy
 
 <h3>Toolbox main programs</h3>:
 <ul>
-<li>`extractIce.py` - extract ice coverage data for region and create timeseries</li>
-<li>`extractIceThickness.py` - extract ice thickness for region and create timeseries</li>
-<li>`extractIceAge.py` - extract the age of ice for region and create timeseries</li>
-<li>`calculateMaxLight.py` - Calculate light at depth in water column under sea ice and snow for region and create timeseries</li>
+<li><b>extractIce.py</b> - extract ice coverage data for region and create timeseries</li>
+<li><b>extractIceThickness.py</b> - extract ice thickness for region and create timeseries</li>
+<li><b>extractIceAge.py</b> - extract the age of ice for region and create timeseries</li>
+<li><b>calculateMaxLight.py</b> - Calculate light at depth in water column under sea ice and snow for region and create timeseries</li>
 </ul>
 
 <h3>Supplemental programs required to run the main programs</h3>
 <ul>
-<li>`extractLightUnderIce.pyx` - Cython program for doing the core calculations using C for speed</li>
-<li>`setup.py` - compiles the Cython program</li>
-<li>`calclight.f90` - Fortran program that calculates the maximum surface light for a given longitude-latitude and time of year (used by extractLightUnderIce.pyx)</li>
+<li><b>extractLightUnderIce.pyx</b> - Cython program for doing the core calculations using C for speed</li>
+<li><b>setup.py</b> - compiles the Cython program</li>
+<li><b>calclight.f90</b> - Fortran program that calculates the maximum surface light for a given longitude-latitude and time of year (used by extractLightUnderIce.pyx)</li>
 </ul>
 
 <h3>Plot maps and time-series</h3>
@@ -45,7 +45,7 @@ def plotMap(lon,lat,mydata,modelName,scenario,mydate,mytype):
 
  <figure>
   <img src="http://www.trondkristiansen.com/wp-content/gallery/romstools/map_NorESM1-M_2011_9.png" width=80% height=80%> 
-  <figcaption>Example of using contouring method: Ice concentration for September 2011 as calculated by NorESM .</figcaption>
+  <figcaption>Ice concentration for September 2011 as calculated by NorESM .</figcaption>
 </figure> 
 
 Simple time-series are plotted by sending the method a Pandas time-series object:
