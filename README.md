@@ -89,3 +89,18 @@ Next, to extract the area (e.g. 0-360E, 60-90N)of the global files you are inter
 ``` bash
 cdo sellonlatbox,0,360,60,90 filename.in.nc filename.out.nc 
 ```
+
+<h2>Contact</h2>
+<ul>
+<li>me @ trondkristiansen.com</li>
+<li>http://github.com/trondkr</li>
+<li>www.trondkristiansen.com</li>
+</ul>
+Please send a comment on suggestions, questions, or modifications and improvements you would like to
+make to me @ trondkristiansen.com. I would very much like to see this project go much further so that it can be
+useful for a variety of purposes.
+
+
+<h2>License</h2>
+
+Model2roms is available under the MIT license. See the LICENSE file for more info.
