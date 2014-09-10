@@ -3,7 +3,7 @@ OceanLight
 <h2>Ocean light toolbox</h2>
 A suite of Python, Fortran, and Cython scripts have been created to make it easy to extract specific data from Earth System Model (ESM) results and to further use these data in combination to calculate light conditions in the ocean. 
 
-<h3>Toolbox main programs</h3>:
+<h3>Toolbox main programs</h3>
 <ul>
 <li><b>extractIce.py</b> - extract ice coverage data for region and create timeseries</li>
 <li><b>extractIceThickness.py</b> - extract ice thickness for region and create timeseries</li>
