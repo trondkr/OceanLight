@@ -1,5 +1,7 @@
 OceanLight
 ==========
+[![GitHub version](https://badge.fury.io/gh/trondkr%2FOceanLight.svg)](http://badge.fury.io/gh/trondkr%2FOceanLight)
+
 <h2>Ocean light toolbox</h2>
 A suite of Python, Fortran, and Cython scripts have been created to make it easy to extract specific data from Earth System Model (ESM) results and to further use these data in combination to calculate light conditions in the ocean. 
 
