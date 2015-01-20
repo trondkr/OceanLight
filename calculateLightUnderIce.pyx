@@ -43,20 +43,25 @@ def getMaxLight(lon,lat,year,month,day,icethickness,snowthickness,albedo,debug):
   
    Eb = surfaceLight
    if debug is True:
-      print "\nSurface light for date: %s %s"%(dayOfYear, Eb)
+       print "\nSurface light for date: %s %s"%(dayOfYear, Eb)
    if snowthickness > 0:
-      Eb = surfaceLight*np.exp(attenuationSnow*(-snowthickness))
-      if debug is True:
-         print "Eb with snow (%s m) : %s"%(snowthickness,Eb)
-   if icethickness > 0.0:
-      Eb = Eb*np.exp(attenuationIceTop10cm*(-0.1))
-      if debug is True:
-         print "Eb with ice top (%s m) : %s"%(icethickness,Eb)
-   if icethickness > 0.1:
-      Eb = Eb*np.exp(attenuationIceBelowSurface*(-icethickness))
-      if debug is True:
-         print "Eb with ice top (%s m) : %s"%(icethickness,Eb)
-      
+       Eb = surfaceLight*np.exp(attenuationSnow*(-snowthickness))
+       if debug is True:
+           print "Eb with snow (%s m) : %s"%(snowthickness,Eb)
+
+   if icethickness >= 0.1:
+       Eb = Eb*np.exp(attenuationIceTop10cm*(-0.1))
+       if debug is True:
+           print "Eb with ice top (%s m) : %s"%(icethickness,Eb)
+       Eb = Eb*np.exp(attenuationIceBelowSurface*(-(icethickness - 0.1)))
+       if debug is True:
+           print "Eb with ice below top (%s m) : %s"%(icethickness - 0.1,Eb)
+   else:
+        Eb = Eb*np.exp(attenuationIceTop10cm*(-icethickness))
+        if debug is True:
+            print "Eb with ice top (%s m) : %s"%(icethickness,Eb)
+
+
    return Eb
 
 

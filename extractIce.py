@@ -76,7 +76,7 @@ def plotTimeseries(ts,myvar):
     
     remove_border(top=False, right=False, left=True, bottom=True)
    
-    ylabel(r'Icea area (million m$^{2})$')
+    ylabel(r'Icea area (million km$^{2})$')
       
     plotfile='figures/timeseries_'+str(myvar)+'.pdf'
     plt.savefig(plotfile,dpi=300,bbox_inches="tight",pad_inches=0)
@@ -134,8 +134,7 @@ def openCMIP5file(selectedMonth,useSmoothing,CMIP5Hist,CMIP5Proj,myvar,yearsOfSm
     timeFull = np.ma.concatenate((timeHist,timeProj),axis=0)
     """Combine the myvarname arrays"""
     dataFull = np.ma.concatenate((myTEMPHIST,myTEMPPROJ),axis=0)
-    """Convert from square meters to million square meters"""
-    dataFull = dataFull/1.e6
+    dataFull = dataFull
     """Make sure that we have continous data around the globe"""
     dataFull, loncyclicCMIP5 = addcyclic(dataFull, lonCMIP5)
     lons,lats=np.meshgrid(loncyclicCMIP5,latCMIP5)
@@ -253,7 +252,7 @@ def calculateTotalIceArea(month,year,icedata,lon,lat):
             
             ice=float(icedata[y,x])
             if ice > 0:
-                area = calculateArea(lat0,lat1,lon0,lon1,ice)
+                area = calculateArea(lat0,lat1,lon0,lon1,ice,month)
                 totalarea+=area
                 
     print "Total area with ice for month: %s year: %s -> %s "%(month,year,totalarea)
@@ -263,7 +262,7 @@ def calculateTotalIceArea(month,year,icedata,lon,lat):
         
     
  
-def calculateArea(lat0,lat1,lon0,lon1,areaIce):
+def calculateArea(lat0,lat1,lon0,lon1,areaIce,month):
     
     earthRadius = 6371000
     rad = np.pi / 180.0
@@ -274,8 +273,8 @@ def calculateArea(lat0,lat1,lon0,lon1,areaIce):
     """
 
     area = earthRadius**2 * (np.sin(lat1*rad)-np.sin(lat0*rad)) * (lon1 - lon0) * rad
-
-    return area * (areaIce/ 100.0)
+    # Convert from m2 to km2 by dividing by 1.e6
+    return (area * (areaIce/ 100.0))/1.e6
 
 def main():
 

@@ -49,7 +49,7 @@ def calculateArea(lat0,lat1,lon0,lon1,areaIce):
 
     area = earthRadius**2 * (np.sin(lat1*rad)-np.sin(lat0*rad)) * (lon1 - lon0) * rad
 
-    return area * (areaIce/ 100.0)
+    return area * (areaIce)
 
 
 """Function that opens a CMIP5 file and reads the contents. The innput

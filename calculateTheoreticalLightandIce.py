@@ -83,8 +83,9 @@ def main():
 
     lon=15; year=2014; month=6; day=23;
 
-    icethicknesslist=np.arange(0.1,4,0.01) #meter
-    snowthicknesslist=np.arange(0,0.1,0.01) #meter
+    icethicknesslist=np.arange(0.,4,0.01) #meter
+    snowthicknesslist=np.arange(0,0.21,0.01) #meter
+
     latitudes=[70,80,90]
     light=[]
     albedo=0.9
@@ -110,7 +111,8 @@ def main():
             jj=0
             out.close()
             newfile=True
-            plotTimeseries(light,icethicknesslist,snowthickness,lat)
+            if snowthicknesslist[ii] in [0.0,0.05,0.1,0.2]:
+                plotTimeseries(light,icethicknesslist,snowthickness,lat)
             light=[]
 
 main()         
